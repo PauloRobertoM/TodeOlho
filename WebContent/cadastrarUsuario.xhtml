@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+<f:view encoding="ISO-8859-1">
+	<h:head>
+		<title>Tô de Olho - Cadastre-se</title>
+		<h:outputStylesheet library="bootstrap/css/" name="bootstrap.css" />
+	  	<h:outputStylesheet library="bootstrap/css/" name="style_todeolho.css" />
+    	<h:outputStylesheet library="bootstrap/css/"  name="style.css"/>
+    	<h:outputStylesheet library="bootstrap/css/"  name="style-responsive.css"/>
+    	<!-- js placed at the end of the document so the pages load faster -->
+    	<h:outputScript library="bootstrap/js" name="jquery.js" />
+    	<h:outputScript library="bootstrap/js" name="bootstrap.min.js" />		
+	</h:head>
+	<h:body>
+		<div id="login-page">
+			<div class="barra_top"></div>
+			<div class="container logo-login">
+	  			<p:graphicImage name="bootstrap/img/logo_2.png" />
+	  		</div>	
+	  		<div class="container">
+				<h:form class="form-login">
+					<h2 class="form-login-heading">Cadastre-se</h2>
+					<p:growl id="messages" showDetail="true" />							
+					<div class="login-wrap">
+						<h:outputText value="Login:" />
+	  				 	<br/>
+	  				 	<h:inputText class="form-control" id="login" value="#{perfilMB.perfil.login}" label="Nome" required="true" placeholder="Login"  />			
+						<br/>
+						<h:outputText value="Senha:" />
+	  				 	<br/>
+						<p:password class="form-control" id="senha" value="#{perfilMB.perfil.senha}" label="Senha" 	required="true" placeholder="Senha"/>
+						<br/>
+						<h:outputText value="Você é um(a):" />
+	  				 	<br/>
+						<h:selectOneMenu value="#{perfilMB.perfil.tipoPerfil}">
+						   	<f:selectItem itemValue="1" itemLabel="Administrador" />
+						   	<f:selectItem itemValue="2" itemLabel="Cidadão" />
+						   	<f:selectItem itemValue="3" itemLabel="Mídia" />
+						</h:selectOneMenu> 
+						<br/>
+						<br/>
+						
+						<p:commandButton value="Cadastrar" id="botao1" action="#{perfilMB.salvarPerfil}" ajax="false" style="display: block;"/>	
+	  				 </div>						
+				</h:form>
+			</div> <!-- Fim container -->
+		</div> <!-- Fim login page -->x
+	</h:body>
+</f:view>
+</html>

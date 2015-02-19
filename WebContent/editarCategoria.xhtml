@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+	<!-- 	<f:metadata> -->
+	<!-- 		<f:event type="preRenderView" listener="#{usuario.verificaSessao}" /> -->
+	<!-- 	</f:metadata> -->
+	<ui:define name="main-content">
+		<br />
+		<br />
+		<br />
+		<br />
+		<section class="wrapper site-min-height">
+			<div class="row mt">
+				<div class="container">
+					<h3 class="title-perfil">
+						<i class="fa fa-angle-right"></i> Edição de Categoria
+					</h3>
+					<h:form prependId="false" enctype="multipart/form-data">
+						<h:panelGrid>
+							<h:outputText value="Nome da Categoria" class="lead" />
+
+							<h:inputText id="nomeCategoria"
+								value="#{categoriaMB.nomeCategoria}"
+								label="categoria" required="true" />
+							<br />
+
+							<h:outputText value="Descrição da Categoria" class="lead" />
+
+							<h:inputTextarea id="descricaoCategoria"
+								value="#{categoriaMB.descricaoCategoria}"
+								placeholder="Máximo 255 caracteres" label="Texto" rows="5"
+								cols="50" maxlength="255" autoResize="false" required="true"
+								styleClass="form-control" />
+<!-- 							<h:inputText id="descricaoCategoria" -->
+<!-- 								value="#{categoriaMB.categoria.descricaoCategoria}" -->
+<!-- 								label="categoria" required="true" /> -->
+							<br />
+
+						</h:panelGrid>
+						
+						<h:commandButton class="btn" value="Salvar Alterações"
+							id="nonAjax" action="#{categoriaMB.alterar}" ajax="false" >
+
+										<f:param name="id" value="#{categoriaMB.idCategoria}" />
+						</h:commandButton>			
+					</h:form>
+				</div>
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>
+</html>

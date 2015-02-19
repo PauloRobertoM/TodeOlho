@@ -1,0 +1,62 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<ui:composition template="/templates/template.xhtml">
+
+	<ui:define name="main-content">
+		<br/><br/><br/><br/><br/>
+		<section class="wrapper site-min-height">
+			<div class="row mt">
+				<div class="container">
+					<h3 class="title-perfil">
+			 		<i class="fa fa-angle-right"></i> Gerenciar Categorias</h3>
+					<h:form id="form">
+
+						<p:dataTable id="tbl" var="categoria"
+							value="#{categoriaMB.categorias}" rows="10"
+							style="margin-bottom:20px; text-align:center;">
+
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="Nome da Categoria" />
+								</f:facet>
+								<h:outputText value="#{categoria.nomeCategoria}" />
+							</p:column>
+							
+							<p:column>
+								<f:facet name="header">
+									<h:outputText value="Descrição da Categoria" />
+								</f:facet>
+								<h:outputText value="#{categoria.descricaoCategoria}" />
+							</p:column>
+
+							<p:column>
+								<f:facet name="header">
+								</f:facet>
+
+								<p:commandButton value="Editar"
+									action="#{categoriaMB.editAction(categoria.idCategoria)}">
+								</p:commandButton>
+								<br />
+
+								<p:commandButton value="Excluir"
+									action="#{categoriaMB.excluirCategoria(categoria.idCategoria)}">
+								</p:commandButton>
+
+							</p:column>
+
+						</p:dataTable>
+
+					</h:form>
+
+				</div>
+			</div>
+		</section>
+	</ui:define>
+</ui:composition>
+</html>
